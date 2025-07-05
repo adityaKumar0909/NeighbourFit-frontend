@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body {
+    @apply font-[Poppins];
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body{
+    @apply bg-white min-h-screen w-full  overflow-x-hidden;
+}
