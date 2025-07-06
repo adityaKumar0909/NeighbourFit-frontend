@@ -1,6 +1,6 @@
 
 
-![App Demo](./screenshots/demo.gif)
+![App Demo](./src/assets/NeighbourFit.gif)
 # 🏙️ NeighbourFit — Smart Neighborhood Finder
 
 NeighbourFit is a lifestyle-focused web application that helps users find the most suitable neighborhoods based on their preferences — like rent, safety, greenery, nightlife, and more.  
