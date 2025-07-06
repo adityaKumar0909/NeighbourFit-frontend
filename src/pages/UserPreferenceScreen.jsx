@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import AlertError from "../components/alertError.jsx";
 import { useLocation } from 'react-router-dom';
 import Loading from "../components/loading.jsx";
+import LoggedOutAlert from "../components/loggedOutAlert.jsx";
 
 const FAKE_REVIEWS = [
     {
@@ -209,7 +210,7 @@ export function UserPreferenceScreen() {
                                             Submit Preferences
                                         </button>
                                         {loading && <Loading />}
-                                        {error && <AlertError error={error} />}
+                                        {error && <LoggedOutAlert />}
 
                                     </div>
                                 </div>
