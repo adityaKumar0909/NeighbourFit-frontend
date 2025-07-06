@@ -18,9 +18,6 @@ export default function Footer(){
                     <a href="https://www.instagram.com/adityakmr2730/" className="text-white hover:text-gray-500">
                         <i className="fab fa-instagram text-lg"></i>
                     </a>
-                    <a href="https://github.com/adityaKumar0909" className="text-white hover:text-gray-500">
-                        <i className="fab fa-github text-lg"></i>
-                    </a>
                 </div>
 
                 {/* Copyright (optional) */}

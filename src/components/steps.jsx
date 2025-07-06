@@ -7,13 +7,13 @@ export default function Steps(){
 
                     </p>
                 </div>
-                <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                <h2 className=" break-words max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
           <span className="relative inline-block">
 
           </span>{' '}
                     How We Find Your Perfect Neighborhood
                 </h2>
-                <pre className="text-base text-gray-700 md:text-lg">
+                <pre className="text-base text-gray-700 md:text-lg break-words">
                     We gather real-world data, apply smart filters,
                     and rank the best areas just for you
                 </pre>
