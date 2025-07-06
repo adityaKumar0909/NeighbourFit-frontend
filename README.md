@@ -1,12 +1,48 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+![App Demo](./src/assets/NeighbourFit.gif)
+# 🏙️ NeighbourFit — Smart Neighborhood Finder
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+NeighbourFit is a lifestyle-focused web application that helps users find the most suitable neighborhoods based on their preferences — like rent, safety, greenery, nightlife, and more.  
+Built for people who want more than just a house — they want a **vibe**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Features
+
+- 🧠 Intelligent lifestyle-to-location **matching algorithm**
+- 📊 Visualized radar charts for easy comparison
+- 🗺️ Google Maps integration for locality preview
+- 📱 Responsive UI with smooth animations (Framer Motion)
+- 🌐 Real-time reviews & preference-driven recommendations
+
+---
+
+## 🔧 Tech Stack
+
+| Frontend  | Tools & Libraries           |
+|-----------|-----------------------------|
+| React     | ⚛️ Vite, JSX, Tailwind CSS  |
+| Routing   | 🔁 React Router             |
+| State Mgmt| 🧠 useState, useEffect      |
+| Animations| 🎞️ Framer Motion           |
+| Charts    | 📈 Recharts                 |
+| Maps      | 🗺️ Google Maps API          |
+
+---
+
+## 🚀 Getting Started
+
+### 🛠️ Setup Locally
+
+```bash
+git clone https://github.com/YourUsername/NeighbourFit-frontend.git
+cd NeighbourFit-frontend
+npm install
+npm run dev
+```
+
+## 🌐 Live Demo
+
+🌍 **Frontend Deployed At:**  
+[https://neighbourfit-frontend.onrender.com](https://neighbourfit-frontend.onrender.com)
