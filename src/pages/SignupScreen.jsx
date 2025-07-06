@@ -77,6 +77,10 @@ export default function SignupScreen() {
                     <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
                         <h1 className="text-slate-900 text-center text-3xl font-semibold">Sign Up</h1>
 
+                        <p className="text-center text-lg text-red-400 mt-2 font-bold">
+                            Please check your spam folder too — your OTP might land there!
+                        </p>
+
 
                         <form className="mt-12 space-y-6" onSubmit={handleSubmit}>
                             <div>

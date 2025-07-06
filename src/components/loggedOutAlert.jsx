@@ -1,13 +1,6 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
 
 export default function LoggedOutAlert() {
-
-    const[show, setShow] = useState(true);
-
-    if (!show) return null;
-
-    const handleClose = () => setShow(false);
 
     const navigate = useNavigate();
     return (
