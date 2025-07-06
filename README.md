@@ -40,6 +40,7 @@ git clone https://github.com/YourUsername/NeighbourFit-frontend.git
 cd NeighbourFit-frontend
 npm install
 npm run dev
+```
 
 ## 🌐 Live Demo
 
