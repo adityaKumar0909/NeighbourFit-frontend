@@ -1,3 +1,7 @@
+
+
+//This contains the navbar , hero section , about section and the contact details
+
 import NavigationBar from "../components/navigationBar.jsx";
 import Hero from "../components/hero.jsx";
 import About from "../components/about.jsx";

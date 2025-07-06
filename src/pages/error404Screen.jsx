@@ -1,3 +1,7 @@
+
+//Error 404 page : No explaination needed , Has buttons to go the previous tab or the home tab of website
+
+
 import {useNavigate} from "react-router-dom";
 
 export default function Error404Screen() {

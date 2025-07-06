@@ -1,4 +1,6 @@
 
+//Key component of email verification during sign-up
+
 import AlertError from '../components/alertError.jsx'
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";

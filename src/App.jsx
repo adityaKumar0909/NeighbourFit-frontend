@@ -1,8 +1,9 @@
 
+//This file contains all the routes of the website and implemented smooth transition using framer npm-package
+
+
 import './App.css'
-
 import {useLocation,Routes,Route} from "react-router-dom";
-
 import OnboardingPage  from './pages/OnboardingPage.jsx'
 import LoginScreen from './pages/LoginScreen.jsx'
 import SignupScreen from './pages/SignupScreen.jsx'

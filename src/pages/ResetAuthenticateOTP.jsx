@@ -1,3 +1,6 @@
+//This page is a crucial component for the Reset Password functionality , It is where the user enters OTP
+//and chose new password for app
+
 import AlertError from '../components/alertError.jsx'
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";

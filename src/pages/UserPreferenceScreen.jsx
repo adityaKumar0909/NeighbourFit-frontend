@@ -1,3 +1,6 @@
+
+//Main page of website
+
 import CCarousel from "../components/carousel.jsx";
 import { useState, useEffect } from "react";
 import RadarChartComponent from "../components/radarChart.jsx";
@@ -8,20 +11,6 @@ import { useLocation } from 'react-router-dom';
 import Loading from "../components/loading.jsx";
 import LoggedOutAlert from "../components/loggedOutAlert.jsx";
 
-const FAKE_REVIEWS = [
-    {
-        author: "Riya Sharma",
-        text: "Peaceful and clean neighbourhood. Loved living here!",
-    },
-    {
-        author: "Aman Verma",
-        text: "Perfect for students – cafes and metro nearby.",
-    },
-    {
-        author: "Neha Kapoor",
-        text: "Great vibes, slightly expensive but worth it.",
-    }
-];
 
 export function UserPreferenceScreen() {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -41,13 +30,6 @@ export function UserPreferenceScreen() {
 
     const cityName = cityNameFromRoute || localStorage.getItem("selectedCity");
 
-    // useEffect(() => {
-    //     if (selectedNeighbour?.name) {
-    //         setTimeout(() => {
-    //             setReviews(FAKE_REVIEWS.sort(() => 0.5 - Math.random()).slice(0, 3));
-    //         }, 500); // simulate fake fetch delay
-    //     }
-    // }, [selectedNeighbour]);
 
     const [preferences, setPreferences] = useState({
         rent: 0,
@@ -66,6 +48,7 @@ export function UserPreferenceScreen() {
         setPreferences({ ...preferences, [e.target.name]: e.target.value });
     };
 
+    //Refresh access tokens in case Access tokens expired
     const refreshAccessToken = async () => {
         try {
             const res = await fetch('http://localhost:5000/refresh-tokens', {
@@ -81,7 +64,7 @@ export function UserPreferenceScreen() {
         }
     };
 
-
+    //fetched city neighbourhoods based on user's preferences
     const handleSubmit = async (e) => {
         e.preventDefault();
 

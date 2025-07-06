@@ -1,3 +1,6 @@
+
+//Signup feature with email verification
+
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import AlertError from '../components/alertError.jsx'

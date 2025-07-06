@@ -1,3 +1,6 @@
+
+//Login page that is required to access the website key-feature
+
 import AlertError from '../components/alertError.jsx'
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";

@@ -1,3 +1,7 @@
+
+//This page is where the user selects the city he want to search his choice of neighbourhood in , It also houses some user reviews
+
+
 import React, { useEffect } from 'react';
 import DashboardCTA from "../components/dashboardCTA.jsx";
 import DashboardSelectLocation from "../components/dashboardSelectLocation.jsx";

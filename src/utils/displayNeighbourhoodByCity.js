@@ -1,3 +1,5 @@
+//This page is used for debugging purpose
+
 export async function displayNeighbourhoodByCity() {
 
     let cleanedData = [];

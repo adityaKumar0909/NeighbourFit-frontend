@@ -1,3 +1,6 @@
+
+//Reset password screen with email verification
+
 import AlertError from '../components/alertError.jsx'
 import {useNavigate} from 'react-router-dom'
 import {useState} from "react";
