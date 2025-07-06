@@ -27,7 +27,7 @@ export function UserPreferenceScreen() {
     const [selectedNeighbour, setSelectedNeighbour] = useState(null);
     const [error, setError] = useState(null);
     const [top3Neighborhoods, setTop3Neighborhoods] = useState([]);
-    const [reviews, setReviews] = useState([]);
+    // const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
     const cityNameFromRoute = location.state?.city;
@@ -40,13 +40,13 @@ export function UserPreferenceScreen() {
 
     const cityName = cityNameFromRoute || localStorage.getItem("selectedCity");
 
-    useEffect(() => {
-        if (selectedNeighbour?.name) {
-            setTimeout(() => {
-                setReviews(FAKE_REVIEWS.sort(() => 0.5 - Math.random()).slice(0, 3));
-            }, 500); // simulate fake fetch delay
-        }
-    }, [selectedNeighbour]);
+    // useEffect(() => {
+    //     if (selectedNeighbour?.name) {
+    //         setTimeout(() => {
+    //             setReviews(FAKE_REVIEWS.sort(() => 0.5 - Math.random()).slice(0, 3));
+    //         }, 500); // simulate fake fetch delay
+    //     }
+    // }, [selectedNeighbour]);
 
     const [preferences, setPreferences] = useState({
         rent: 0,
@@ -65,8 +65,25 @@ export function UserPreferenceScreen() {
         setPreferences({ ...preferences, [e.target.name]: e.target.value });
     };
 
+    const refreshAccessToken = async () => {
+        try {
+            const res = await fetch('http://localhost:5000/refresh-tokens', {
+                method: 'POST',
+                credentials: 'include', // important to send cookies
+            });
+
+            if (!res.ok) throw new Error("Token refresh failed");
+            return true;
+        } catch (err) {
+            console.error("Refresh token error:", err);
+            return false;
+        }
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!cityName) {
             setError("City information is missing. Please go back to the location selection page.");
             return;
@@ -76,38 +93,60 @@ export function UserPreferenceScreen() {
             .filter(([_, value]) => Number(value) >= 9)
             .map(([key]) => key);
 
-        setLoading(true);
-        try {
-            const requestBody = {
-                city: cityName,
-                preferences,
-                top: selectedTopPriorities,
-            };
+        const requestBody = {
+            city: cityName,
+            preferences,
+            top: selectedTopPriorities,
+        };
 
-            const response = await fetch('https://neighbourfit-eqoq.onrender.com/dashboard/topThreeWebsites', {
+        const makeRequest = async () => {
+            return await fetch('https://neighbourfit-eqoq.onrender.com/dashboard/topThreeWebsites', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
                 body: JSON.stringify(requestBody),
             });
+        };
 
-            const data = await response.json();
+        setLoading(true);
+        try {
+            let response = await makeRequest();
+            let data = await response.json();
+
             console.log("Response status:", response.status);
-
-            setLoading(false);
 
             if (response.status === 200) {
                 setTop3Neighborhoods(data);
-                setSelectedNeighbour(data[0]); // Auto-select top match
+                setSelectedNeighbour(data[0]);
+            } else if (response.status === 401 && data.shouldRefresh) {
+                const refreshed = await refreshAccessToken();
+
+                if (refreshed) {
+                    // Retry original request
+                    response = await makeRequest();
+                    data = await response.json();
+
+                    if (response.status === 200) {
+                        setTop3Neighborhoods(data);
+                        setSelectedNeighbour(data[0]);
+                    } else {
+                        setError(data.message || 'Request failed after refresh');
+                    }
+                } else {
+                    setError("Session expired. Please log in again.");
+                    // Optionally: redirect to login
+                }
             } else {
                 setError(data.message || 'An error occurred');
             }
         } catch (error) {
             console.error('Fetch error:', error);
             setError(error.message || 'Network error');
+        } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <motion.div
@@ -243,10 +282,14 @@ export function UserPreferenceScreen() {
                                     Spotted your dream zone? Let’s talk homes.
                                 </h3>
 
-                                <div className="flex gap-6">
+                                <div className=" flex gap-6">
+                                    <div className="tooltip tooltip-bottom tooltip-neutral" data-tip ="+91 7007-631-460">
                                     <button className="text-lg btn btn-dash rounded-full">Call ☎️</button>
-                                    <button className="text-lg btn btn-dash rounded-full">Message 💬</button>
+                                    </div>
+                                    <div className="tooltip tooltip-bottom tooltip-neutral" data-tip ="kadi93030@gmail.com">
                                     <button className="text-lg btn btn-dash rounded-full">Email 📫</button>
+                                    </div>
+
                                 </div>
                             </>
                         )}

@@ -1,4 +1,5 @@
 import heroImg from '../assets/hero.jpg';
+import CookieAnnouncement from "./cookieAnnouncement.jsx";
 
 export default function Hero(){
     return(
@@ -34,6 +35,8 @@ export default function Hero(){
                         className="w-full max-w-md rounded-xl  object-cover"
                     />
                 </div>
+                <CookieAnnouncement/>
+
             </div>
         </section>
     )

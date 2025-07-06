@@ -1,10 +1,64 @@
 import {useNavigate} from 'react-router-dom'
 
 import {motion} from 'framer-motion';
+import {useEffect, useState} from "react";
 
 
 export default function NavigationBar() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+
+    const LogOutUser = async ()=>{
+        setLoading(true);
+        try{
+            const res = await fetch("https://neighbourfit-eqoq.onrender.com/auth/logout",{
+                method: "POST",
+                credentials: "include",
+            });
+
+            if(res.status === 200){
+                setIsLoggedIn(false);
+            }
+
+        }catch(err){
+            console.error("Logout error: ", err);
+        }
+        finally {
+            setLoading(false);
+        }
+
+    }
+
+
+
+    useEffect(() => {
+        const checkAuth = async() =>{
+            console.log("Checking auth...");
+            try{
+                const res = await fetch("https://neighbourfit-eqoq.onrender.com/auth/user",{
+                    method: "POST",
+                    credentials: "include"
+                });
+
+                if(res.status === 200){
+                    setIsLoggedIn(true);
+                }else{
+                    setIsLoggedIn(false);
+                }
+            }
+            catch(err){
+                console.error("Auth check error: ", err);
+            }
+            finally {
+                setLoading(false);
+            }
+        }
+
+        checkAuth();
+        console.log("Authentication check complete");
+
+    }, []);
 
     return (
 
@@ -58,23 +112,39 @@ export default function NavigationBar() {
                             </ul>
                         </nav>
 
-                        <div className="flex items-center gap-4">
-                            <div className="sm:flex sm:gap-4">
-                                <button
-                                    className="rounded-md bg-[#212529] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4361ee]"
-                                    onClick={() => navigate('/login')}
-                                >
-                                    Login
-                                </button>
 
-                                <div className="hidden sm:flex">
-                                    <button 
-                                        onClick={() => navigate('/sign-up')}
-                                        className="rounded-md bg-[#212529] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4361ee]">
-                                        Register
-                                    </button>
-                                </div>
-                            </div>
+                        <div className="flex items-center gap-4">
+                            {loading ? (
+                                <div className="text-sm text-gray-500">Checking auth...</div>
+                            ) : isLoggedIn ? (
+                                    (
+                                        <button
+                                            className="rounded-md bg-[#212529] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4361ee]"
+                                            onClick={LogOutUser}
+                                        >
+                                            Logout
+                                        </button>
+                                    )
+                            ) :
+                                (
+                                    <div className="sm:flex sm:gap-4">
+                                        <button
+                                            className="rounded-md bg-[#212529] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4361ee]"
+                                            onClick={() => navigate('/login')}
+                                        >
+                                            Login
+                                        </button>
+
+                                        <div className="hidden sm:flex">
+                                            <button
+                                                onClick={() => navigate('/sign-up')}
+                                                className="rounded-md bg-[#212529] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#4361ee]">
+                                                Register
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                )}
 
                             <div className="block md:hidden">
                                 <button
