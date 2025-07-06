@@ -40,3 +40,8 @@ git clone https://github.com/YourUsername/NeighbourFit-frontend.git
 cd NeighbourFit-frontend
 npm install
 npm run dev
+
+## 🌐 Live Demo
+
+🌍 **Frontend Deployed At:**  
+[https://neighbourfit-frontend.onrender.com](https://neighbourfit-frontend.onrender.com)
