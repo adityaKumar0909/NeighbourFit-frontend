@@ -11,13 +11,13 @@ export default function Testimonials(){
             avatar: "https://randomuser.me/api/portraits/women/79.jpg",
             name: "Nidhi",
             title: "Product designer",
-            quote: "With two school kids and hectic jobs, we needed a calm but connected area. NeighbourFit understood our rhythm and suggested a neighborhood that truly fits."
+            quote: "With two school kids and hectic jobs, we needed a calm but connected area. NeighbourFit understood our rhythm and suggested a neighbourhood that truly fits."
         },
         {
             avatar: "https://randomuser.me/api/portraits/men/86.jpg",
             name: "Jaswinder",
             title: "DevOp engineer",
-            quote: " I just wanted a place close to campus but not too noisy. This app figured out the perfect balance of chill and convenience."
+            quote: " I just wanted a place close to campus but not too noisy. This website figured out the perfect balance of chill and convenience."
         },
     ]
 

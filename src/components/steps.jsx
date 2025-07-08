@@ -11,7 +11,7 @@ export default function Steps(){
           <span className="relative inline-block">
 
           </span>{' '}
-                    How We Find Your Perfect Neighborhood
+                    How We Find Your Perfect Neighbourhood
                 </h2>
                 <pre className="text-base text-gray-700 md:text-lg break-words">
                     We gather real-world data, apply smart filters,
@@ -45,8 +45,8 @@ export default function Steps(){
                             />
                         </svg>
                     </div>
-                    <p className="text-gray-600">
-                        Behind the scenes, we gather data from Google Maps reviews, online forums, and on-site sample surveys to build a holistic neighborhood profile.
+                    <p className="text-gray-600 ">
+                        Behind the scenes, we gather data from Google Maps reviews, online forums, and on-site sample surveys to build a holistic neighbourhood profile.
                     </p>
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export default function Steps(){
                         </svg>
                     </div>
                     <p className="text-gray-600">
-                        We filter all neighborhoods that belong to the selected city in our database.
+                        We filter all neighbourhoods that belong to the selected city in our database.
                     </p>
                 </div>
                 <div>
@@ -106,7 +106,7 @@ export default function Steps(){
                         </svg>
                     </div>
                     <p className="text-gray-600">
-                        Each neighborhood is scored based on how well it
+                        Each neighbourhood is scored based on how well it
                         aligns with user lifestyle preferences like safety,
                         affordability, commute ease, and social vibe.
                     </p>
@@ -130,7 +130,7 @@ export default function Steps(){
                         </svg>
                     </div>
                     <p className="text-gray-600">
-                        The top 3 neighborhoods with the highest scores are recommended to the user.
+                        The top 3 neighbourhoods with the highest scores are recommended to the user.
                         Each match includes summary highlights, suitability tags, and
                         quick facts to help users decide with confidence.
 
